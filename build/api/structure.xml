@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project title="Arizona.Proof API Documentation" version="2.2.0&#10;">
+  <partials/>
+  <file path="Fuzzyfication/Fuzzyfication.php" generated-path="Fuzzyfication.Fuzzyfication.html" hash="888c9ce1377e367c224dc768349ed61c" package="Arizona">
+    <docblock line="0">
+      <description>Description of Fuzzyfication</description>
+      <long-description></long-description>
+      <tag name="author" line="0" description="thiagovalentim"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="Fuzzy\Fuzzyfication" line="9" package="Arizona">
+      <extends>\Fuzzy\Fuzzyfication\FuzzyficationAbstract</extends>
+      <name>Fuzzyfication</name>
+      <full_name>\Fuzzy\Fuzzyfication\Fuzzyfication</full_name>
+      <docblock line="9">
+        <description></description>
+        <long-description></long-description>
+      </docblock>
+    </class>
+    <source>eJxdjEEOwjAMBO9+hc+59AEgARLiFVyMcYmlNoliF5Ui/k4qTmWPszu7P5RYoAsBMOBZjKsW15ww93iZluXVK9MKWr9OjjR5zBU9Kj3ykwZJrmNrOkg0ihVi+YnXjb4D4IHMtqcos0u6/9HTzbwSO7wBW+ADX1IhOTs=</source>
+  </file>
+  <file path="Fuzzyfication/FuzzyficationAbstract.php" generated-path="Fuzzyfication.FuzzyficationAbstract.html" hash="49185731f4897937cd6e00b34ebcc6c2" package="Arizona">
+    <docblock line="0">
+      <description>Description of FuzzyficationAbstract</description>
+      <long-description></long-description>
+      <tag name="author" line="0" description="thiagovalentim"/>
+    </docblock>
+    <class final="false" abstract="true" namespace="Fuzzy\Fuzzyfication" line="11" package="Arizona">
+      <extends/>
+      <implements>\Fuzzy\Fuzzyfication\FuzzyficationInterface</implements>
+      <name>FuzzyficationAbstract</name>
+      <full_name>\Fuzzy\Fuzzyfication\FuzzyficationAbstract</full_name>
+      <docblock line="11">
+        <description></description>
+        <long-description></long-description>
+      </docblock>
+      <property static="false" visibility="protected" line="13" namespace="Fuzzy\Fuzzyfication" package="Arizona">
+        <name>$fuzzyCollection</name>
+        <default>array()</default>
+        <docblock line="13">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" line="14" namespace="Fuzzy\Fuzzyfication" package="Arizona">
+        <name>$pertinence</name>
+        <default></default>
+        <docblock line="14">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Fuzzy\Fuzzyfication" line="16" package="Arizona">
+        <name>__construct</name>
+        <full_name>\Fuzzy\Fuzzyfication\FuzzyficationAbstract::__construct()</full_name>
+        <docblock line="16">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$function</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Fuzzy\Fuzzyfication" line="22" package="Arizona">
+        <name>addCollection</name>
+        <full_name>\Fuzzy\Fuzzyfication\FuzzyficationAbstract::addCollection()</full_name>
+        <docblock line="22">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$type</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Fuzzy\Fuzzyfication" line="27" package="Arizona">
+        <name>addGroup</name>
+        <full_name>\Fuzzy\Fuzzyfication\FuzzyficationAbstract::addGroup()</full_name>
+        <docblock line="27">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$type</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$group</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$values</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Fuzzy\Fuzzyfication" line="32" package="Arizona">
+        <name>__get</name>
+        <full_name>\Fuzzy\Fuzzyfication\FuzzyficationAbstract::__get()</full_name>
+        <docblock line="32">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$name</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Fuzzy\Fuzzyfication" line="39" package="Arizona">
+        <name>run</name>
+        <full_name>\Fuzzy\Fuzzyfication\FuzzyficationAbstract::run()</full_name>
+        <docblock line="39">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$value</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <source>eJyVU8tOwzAQvOcr9hCJtKLqBxQKCATigjhxKVVk3E1rkdqWH0BB/XfWcaqkaVqEL4ntmZ3ZsX1xpVc6GQ+HCQzhDi03QjuhJKgC7v3396YQnIWFmzfrDOOOcAF6zbxbKQNuJdhSfbASpRNr2hknkq3RasYxFnjdKzNJEm97d16f0TghUXJs/RKe1crAS2ZtvysQa13imkx0AI/SoSnITPKTAA1tlEPucAFpEXC3qixpHjq+BGYM22SDSRepW3bCVtz3b6XgUHgZ6XnOlSQ3nrss3a0OKmiUDqNVivQkfkLTaos1aQgUsB1N92itIqPpEl2rRM3cHrfJFoum5yx1G40HJqNmJ59ZhZ13Yzot9WCU11HlHNJlmNGXrotH+y/ZWSQH+Zr+p3yeUzZZGq5jV0oUkFVd5O+4yfFLWGcj8vyIjcGgRQ/DoPNGHjUdas2bY9zWZnuNGk8HUTXV9Vkog4yvIOuXAWahigcup3W6XZtx9YncUHLUbFbDJvuo7i0bTS26lyrnjHtj6GHtmP3Uk6cW5Oezs6b8WXWOh6L05jhau0vjML9t8guNmH2W</source>
+  </file>
+  <file path="Fuzzyfication/FuzzyficationInterface.php" generated-path="Fuzzyfication.FuzzyficationInterface.html" hash="96130d8b7ce84785cd862c440cd79d80" package="Arizona">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="author" line="0" description="thiagovalentim"/>
+    </docblock>
+    <interface namespace="Fuzzy\Fuzzyfication" line="8" package="Arizona">
+      <name>FuzzyficationInterface</name>
+      <full_name>\Fuzzy\Fuzzyfication\FuzzyficationInterface</full_name>
+      <docblock line="8">
+        <description></description>
+        <long-description></long-description>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Fuzzy\Fuzzyfication" line="10" package="Arizona">
+        <name>addCollection</name>
+        <full_name>\Fuzzy\Fuzzyfication\FuzzyficationInterface::addCollection()</full_name>
+        <docblock line="10">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$type</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Fuzzy\Fuzzyfication" line="11" package="Arizona">
+        <name>addGroup</name>
+        <full_name>\Fuzzy\Fuzzyfication\FuzzyficationInterface::addGroup()</full_name>
+        <docblock line="11">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$type</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$group</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$values</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+    </interface>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="8" code="PPC:ERR-50009">No summary for interface \Fuzzy\Fuzzyfication\FuzzyficationInterface</error>
+      <error line="10" code="PPC:ERR-50015">Argument $type is missing from the Docblock of addCollection()</error>
+      <error line="10" code="PPC:ERR-50008">No summary for method addCollection()</error>
+      <error line="11" code="PPC:ERR-50015">Argument $type is missing from the Docblock of addGroup()</error>
+      <error line="11" code="PPC:ERR-50015">Argument $group is missing from the Docblock of addGroup()</error>
+      <error line="11" code="PPC:ERR-50015">Argument $values is missing from the Docblock of addGroup()</error>
+      <error line="11" code="PPC:ERR-50008">No summary for method addGroup()</error>
+    </parse_markers>
+    <source>eJx1jsEKwjAMhu95ihx20CHsASYoCMrewUvs0rXQtaVrhU18d9vJvBlCfv58fyDHk1cemroGLI1nSlG5gFFpGtyTDNuox0wasDTy5EkwXtOyzPd1Si0oamdbAG0jB/njG+m2NbwAc/n0MFqgTFYUjNT3F2cMr25Xxdnzvv2XvAWX/Dd0wGooLmt+M/GUr94fZLZGtw==</source>
+  </file>
+  <file path="Fuzzyfication/Pertinence/Gaussian.php" generated-path="Fuzzyfication.Pertinence.Gaussian.html" hash="e7a148b09d152b95abaec0fb1839d98f" package="Arizona">
+    <docblock line="0">
+      <description>Description of Gaussian</description>
+      <long-description></long-description>
+      <tag name="author" line="0" description="thiagovalentim"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="Fuzzy\Fuzzyfication\Pertinence" line="10" package="Arizona">
+      <extends/>
+      <name>Gaussian</name>
+      <full_name>\Fuzzy\Fuzzyfication\Pertinence\Gaussian</full_name>
+      <docblock line="10">
+        <description></description>
+        <long-description></long-description>
+      </docblock>
+    </class>
+    <source>eJxFzDEOwjAMheHdp/CcpQcACQYEKwfoYlluY6l1ojhBooi7k3bhDW/5pP98yTEDDCEABryJc9FcNRmmCR/U3JWs065XajWmgjUqzelFi1jVtcsARqt4Jha8t217j8dPyrSnxqeUqibGcgLghdz/6Q9gH3zhBxk+LVY=</source>
+  </file>
+  <file path="Fuzzyfication/Pertinence/Pertinence.php" generated-path="Fuzzyfication.Pertinence.Pertinence.html" hash="4a5032be2de3eae9d51dc79ce45c556e" package="Arizona">
+    <docblock line="0">
+      <description>Description of Pertinence</description>
+      <long-description></long-description>
+      <tag name="author" line="0" description="thiagovalentim"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="Fuzzy\Fuzzyfication\Pertinence" line="10" package="Arizona">
+      <extends/>
+      <name>Pertinence</name>
+      <full_name>\Fuzzy\Fuzzyfication\Pertinence\Pertinence</full_name>
+      <docblock line="10">
+        <description></description>
+        <long-description></long-description>
+      </docblock>
+      <property static="false" visibility="protected" line="12" namespace="Fuzzy\Fuzzyfication\Pertinence" package="Arizona">
+        <name>$namespace</name>
+        <default>'Fuzzy\\Fuzzyfication\\Pertinence\\'</default>
+        <docblock line="12">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" line="13" namespace="Fuzzy\Fuzzyfication\Pertinence" package="Arizona">
+        <name>$function</name>
+        <default></default>
+        <docblock line="13">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Fuzzy\Fuzzyfication\Pertinence" line="15" package="Arizona">
+        <name>__construct</name>
+        <full_name>\Fuzzy\Fuzzyfication\Pertinence\Pertinence::__construct()</full_name>
+        <docblock line="15">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$function</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Fuzzy\Fuzzyfication\Pertinence" line="20" package="Arizona">
+        <name>getPertinence</name>
+        <full_name>\Fuzzy\Fuzzyfication\Pertinence\Pertinence::getPertinence()</full_name>
+        <docblock line="20">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Fuzzy\Fuzzyfication\Pertinence" line="25" package="Arizona">
+        <name>factory</name>
+        <full_name>\Fuzzy\Fuzzyfication\Pertinence\Pertinence::factory()</full_name>
+        <docblock line="25">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$function</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <source>eJx10EFuwyAQBdA9p5hFpKSW2hwgdZtFlXUOYCmi0yFGcgDB0CqpcvfaocbUUVmw+aPHH55fXeuEWFeVgAreKKDXjrU1YBXsybM2ZJD6cMi3MnJrPXCr5dF+yo4M61OfrIWRJwpOIsEuXi7n5nYrjXLAmknaCIGdDKHEvwX0x3nLhEwfsJiwGpbJm4GF2DTLzRxQ0eAwl4KUxvdOI4wJHA5oTWAfkVd5/uE2mvoMZ9FvGh5flES2/lzMJfj6P38kniqu5q4njt5k/k/bEs0bZfe+yrxy+t56xPNfPkVU2ge+26JcdHymBkNfv9ZY6yp+ABKwr+w=</source>
+  </file>
+  <file path="Fuzzyfication/Pertinence/PertinenceAbstract.php" generated-path="Fuzzyfication.Pertinence.PertinenceAbstract.html" hash="39ccc0392977017aa5f1783ea7bfe66b" package="Arizona">
+    <docblock line="0">
+      <description>Description of PertinenceAbstract</description>
+      <long-description></long-description>
+      <tag name="author" line="0" description="thiagovalentim"/>
+    </docblock>
+    <class final="false" abstract="true" namespace="Fuzzy\Fuzzyfication\Pertinence" line="10" package="Arizona">
+      <extends/>
+      <implements>\Fuzzy\Fuzzyfication\Pertinence\PertinenceInterface</implements>
+      <name>PertinenceAbstract</name>
+      <full_name>\Fuzzy\Fuzzyfication\Pertinence\PertinenceAbstract</full_name>
+      <docblock line="10">
+        <description></description>
+        <long-description></long-description>
+      </docblock>
+      <property static="false" visibility="protected" line="12" namespace="Fuzzy\Fuzzyfication\Pertinence" package="Arizona">
+        <name>$start</name>
+        <default></default>
+        <docblock line="12">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" line="13" namespace="Fuzzy\Fuzzyfication\Pertinence" package="Arizona">
+        <name>$end</name>
+        <default></default>
+        <docblock line="13">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" line="14" namespace="Fuzzy\Fuzzyfication\Pertinence" package="Arizona">
+        <name>$interval</name>
+        <default>array()</default>
+        <docblock line="14">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" line="15" namespace="Fuzzy\Fuzzyfication\Pertinence" package="Arizona">
+        <name>$point</name>
+        <default></default>
+        <docblock line="15">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Fuzzy\Fuzzyfication\Pertinence" line="17" package="Arizona">
+        <name>setValues</name>
+        <full_name>\Fuzzy\Fuzzyfication\Pertinence\PertinenceAbstract::setValues()</full_name>
+        <docblock line="17">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$values</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Fuzzy\Fuzzyfication\Pertinence" line="25" package="Arizona">
+        <name>makeInterval</name>
+        <full_name>\Fuzzy\Fuzzyfication\Pertinence\PertinenceAbstract::makeInterval()</full_name>
+        <docblock line="25">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Fuzzy\Fuzzyfication\Pertinence" line="33" package="Arizona">
+        <name>setIntervalValue</name>
+        <full_name>\Fuzzy\Fuzzyfication\Pertinence\PertinenceAbstract::setIntervalValue()</full_name>
+        <docblock line="33">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$each</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="true" static="false" visibility="public" namespace="Fuzzy\Fuzzyfication\Pertinence" line="47" package="Arizona">
+        <name>process</name>
+        <full_name>\Fuzzy\Fuzzyfication\Pertinence\PertinenceAbstract::process()</full_name>
+        <docblock line="47">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$x</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <source>eJyNU8tugzAQvPsr9pADREL5APqUqkq99dRLU1WOsxSrYJBt0iZV/r2LAfOMFB+QvDs7O7OLb+7LtGRss14zWMMTGqFlaWWhoEjgFbWVCpXAx52xmgtLoBr3wCubFhpsKvlXceAZKitzymyY4jmakguE5+p0Om7dN5GC16TbnjFmjLekIDJuzEI3kHmZYU7kw+yLsqgT6sD+GNApdWFRWNzDyliubTyNotrPYrImIeFwC1xrfgzCGaQsCNREm1S1y6SApFLCDcigfeNZhSZwDLA6uFvowI20+qxoSCa6c9KoW0CkIYhKa7IVdDWxh5PYhWhLQskrKFpwzr+bWRGgs3ce2PFOvaNxxdTHXiao6wWQhIGeaORwoAK5SGuor9u0wHawswmh7Zq7uQaO4SrhF0qXN9Gt/n0o52Nkqnfxk8qM6AbI0Od6Zsfu9tDTXGgTNYOJx7UDSBQt5i6qbv6Gpvu40l/ObBaasHbP4FPjAbXxjrt8GANbYPIvePo2aEcCjQlWv7S/M/sHLiZRFw==</source>
+  </file>
+  <file path="Fuzzyfication/Pertinence/PertinenceInterface.php" generated-path="Fuzzyfication.Pertinence.PertinenceInterface.html" hash="ad28cec80f7973b9720528a61f42a064" package="Arizona">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="author" line="0" description="thiagovalentim"/>
+    </docblock>
+    <interface namespace="Fuzzy\Fuzzyfication\Pertinence" line="9" package="Arizona">
+      <name>PertinenceInterface</name>
+      <full_name>\Fuzzy\Fuzzyfication\Pertinence\PertinenceInterface</full_name>
+      <docblock line="9">
+        <description></description>
+        <long-description></long-description>
+      </docblock>
+    </interface>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="9" code="PPC:ERR-50009">No summary for interface \Fuzzy\Fuzzyfication\Pertinence\PertinenceInterface</error>
+    </parse_markers>
+    <source>eJyzsS/IKODi0tfS4lIAIQWHxNKSjPwihZKMzMT0/LLEnNS8ksxcoIw+V15ibmpxQWJyqoJbaVVVZQyYTMtMTizJzM+LCUgtKsnMS81LTrXm4srMK0ktSgMpRQh7wsS4qrm4arkAhjQpjA==</source>
+  </file>
+  <file path="Fuzzyfication/Pertinence/Trapezoid.php" generated-path="Fuzzyfication.Pertinence.Trapezoid.html" hash="54e3798184f0916aa3e07eeee1e9ad35" package="Arizona">
+    <docblock line="0">
+      <description>Description of Trapezoid</description>
+      <long-description></long-description>
+      <tag name="author" line="0" description="thiagovalentim"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="Fuzzy\Fuzzyfication\Pertinence" line="10" package="Arizona">
+      <extends>\Fuzzy\Fuzzyfication\Pertinence\PertinenceAbstract</extends>
+      <name>Trapezoid</name>
+      <full_name>\Fuzzy\Fuzzyfication\Pertinence\Trapezoid</full_name>
+      <docblock line="10">
+        <description></description>
+        <long-description></long-description>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Fuzzy\Fuzzyfication\Pertinence" line="12" package="Arizona">
+        <name>__construct</name>
+        <full_name>\Fuzzy\Fuzzyfication\Pertinence\Trapezoid::__construct()</full_name>
+        <docblock line="12">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Fuzzy\Fuzzyfication\Pertinence" line="20" package="Arizona">
+        <name>process</name>
+        <full_name>\Fuzzy\Fuzzyfication\Pertinence\Trapezoid::process()</full_name>
+        <docblock line="20">
+          <description>max ( min ( x-a/b-a, 1, d-x/d-c ), 0 )</description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$x</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <source>eJxtkM1qwzAQhO96ij34YJsYJ9Cc0l8oPffQW1PCWl43glgSklyclLx713KLDfUehsXzsRrP7YM9WiHKPBeQwzN56ZQNymgwDbw5tHQxqmZvsB+xC0fjIBwVfpovPJEOqmWnFBpb8hYlwUt3uZz3URslcbi1fyUXlCYtaSeEPKH3022gPpCuPUzQU+WDQxnEtwAe21UnJaHptIzJDgdpNBOdDGkWiZEbJuFsvri3RukAd7DdRecaNUr802FyaLGHFFqlWfsCy6rAFWxWUBd9WRcSshWsIfuly8Uo1hlJ3qdJ/y8I8vO/aTgLOa7rff2xm4BqAdjMAbkA3MyBegHYMjARxASHg4LzZFDyXo377EoTmXr43o9M3GU2O+QodE4PjaXcV4rO4TlNKNaVNNnY1F/XV/EDhYCieQ==</source>
+  </file>
+  <file path="Inference/Inference.php" generated-path="Inference.Inference.html" hash="d93028b134ccabd60318d68c33eb701a" package="Arizona">
+    <docblock line="0">
+      <description>Description of Inference</description>
+      <long-description></long-description>
+      <tag name="author" line="0" description="thiagovalentim"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="Fuzzy\Inference" line="10" package="Arizona">
+      <extends>\Fuzzy\Inference\InferenceAbstract</extends>
+      <name>Inference</name>
+      <full_name>\Fuzzy\Inference\Inference</full_name>
+      <docblock line="10">
+        <description></description>
+        <long-description></long-description>
+      </docblock>
+    </class>
+    <source>eJxNzDEOwjAMBdDdp/CcpQcAiSIhJO7AYoxLIrVOFLsIWnF3wgL88T/9v92VWAC6EAADHsS4puIpK+YBTzpIFWVp9uGeZo+5osdEt3ynUdTT1KQDpUmsEAse52V5nr/TDQCPZPY7Q3m46PWv2V/MK7HDCtgCL3gDdG8xrQ==</source>
+  </file>
+  <file path="Inference/InferenceAbstract.php" generated-path="Inference.InferenceAbstract.html" hash="f869acbfa49b87d9a2d8f65de107b14b" package="Arizona">
+    <docblock line="0">
+      <description>Description of InferenceAbstract</description>
+      <long-description></long-description>
+      <tag name="author" line="0" description="thiagovalentim"/>
+    </docblock>
+    <class final="false" abstract="true" namespace="Fuzzy\Inference" line="10" package="Arizona">
+      <extends/>
+      <name>InferenceAbstract</name>
+      <full_name>\Fuzzy\Inference\InferenceAbstract</full_name>
+      <docblock line="10">
+        <description></description>
+        <long-description></long-description>
+      </docblock>
+      <property static="false" visibility="protected" line="12" namespace="Fuzzy\Inference" package="Arizona">
+        <name>$fuzzyCollection</name>
+        <default></default>
+        <docblock line="12">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" line="13" namespace="Fuzzy\Inference" package="Arizona">
+        <name>$rulers</name>
+        <default></default>
+        <docblock line="13">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Fuzzy\Inference" line="15" package="Arizona">
+        <name>__construct</name>
+        <full_name>\Fuzzy\Inference\InferenceAbstract::__construct()</full_name>
+        <docblock line="15">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$fuzzyCollection</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+    </class>
+    <source>eJx1j8FqAkEMhu95ihw86ELxAdTa0iL4DoLENNsdGGeGTEZQ8d2ddcWDrbkl/58vf+bL1CWAadMANvgtmdUlczFgbHEdWlEJLJ+7bEps1dPbPqhYFxWtc/QbD+QlmNtXZQqB9pITseCqnE7HzQMxA6A7BdlTzv/Qz4C1kkYTNvnBUdszvqL3ta+ZZs+6Fi+ah/GglZ13jG0JtwXcbjmGSi9sY1Kl4x/m5LY3XO5rVJ/Kb+9PLly8CHOBC1wBjAlrXQ==</source>
+  </file>
+  <file path="Inference/InferenceInterface.php" generated-path="Inference.InferenceInterface.html" hash="6db3ee63b342bde31014f0fc5aa9cd12" package="Arizona">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+    </docblock>
+    <interface namespace="" line="7" package="Arizona">
+      <name>InferenceInterface</name>
+      <full_name>\InferenceInterface</full_name>
+      <docblock line="7">
+        <description></description>
+        <long-description></long-description>
+        <tag name="author" line="7" description="thiagovalentim"/>
+      </docblock>
+    </interface>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="7" code="PPC:ERR-50009">No summary for interface \InferenceInterface</error>
+    </parse_markers>
+    <source>eJw1ijEKgDAMRfecInOXXEDQtccoNTUFTUtJBRHvbh38vOm9P81VKgA5B/iBS+gmpaFJDls5w85q+RiFIKtxSyEyek3cWCP7X8ENOEZUu+FVesNYVkYZN3jgBT8yIDU=</source>
+  </file>
+  <file path="Inference/Method/MethodAbstract.php" generated-path="Inference.Method.MethodAbstract.html" hash="8fbda7e8ee23a6b7c2b7cc24fa8277fe" package="Arizona">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+    </docblock>
+    <class final="false" abstract="true" namespace="" line="8" package="Arizona">
+      <extends/>
+      <name>MethodAbstract</name>
+      <full_name>\MethodAbstract</full_name>
+      <docblock line="8">
+        <description>Description of MethodAbstract</description>
+        <long-description></long-description>
+        <tag name="author" line="8" description="thiagovalentim"/>
+      </docblock>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJxdy8EKwjAQBND7fsWcc8kPCFrw6kes6WoCbTdsNoJI/90IPTnHmTenc82VKIZACLhKS1aqF92gD9zEs87Tvblx8gF+5sJ9tAbPhZ/64kU2L+tYIvEhkRZu7f/+IYzEWLvjrd2QdBZkMaGdvpoaLCU=</source>
+  </file>
+  <file path="Inference/Method/MethodInterface.php" generated-path="Inference.Method.MethodInterface.html" hash="ce84ed83ddd53b8443f0ab369a8b4cc4" package="Arizona">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+    </docblock>
+    <interface namespace="" line="7" package="Arizona">
+      <name>MethodInterface</name>
+      <full_name>\MethodInterface</full_name>
+      <docblock line="7">
+        <description></description>
+        <long-description></long-description>
+        <tag name="author" line="7" description="thiagovalentim"/>
+      </docblock>
+    </interface>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="7" code="PPC:ERR-50009">No summary for interface \MethodInterface</error>
+    </parse_markers>
+    <source>eJyzsS/IKODi0tfS4lIAIQWHxNKSjPwihZKMzMT0/LLEnNS8ksxcoIw+V2ZeSWpRWmJyqoJvKlBNiieMz1XNpQAE+voFpSUKlfmlRQrJ+SmpChmpRalctVwA1tYfBw==</source>
+  </file>
+  <package name="Arizona" full_name="Arizona"/>
+  <namespace name="global" full_name="global"/>
+  <namespace name="Fuzzy" full_name="Fuzzy">
+    <namespace name="Fuzzyfication" full_name="Fuzzy\Fuzzyfication">
+      <namespace name="Pertinence" full_name="Fuzzy\Fuzzyfication\Pertinence"/>
+    </namespace>
+    <namespace name="Inference" full_name="Fuzzy\Inference"/>
+  </namespace>
+  <deprecated count="0"/>
+</project>
