@@ -172,7 +172,7 @@
                          haltonerror="true"
                          printsummary="true"
                          codecoverage="true"
-                         bootstrap="${application.tests}/bootstrap.php">
+                         bootstrap="${project.basedir}/application/bootstrap.php">
                     <batchtest>
                         <fileset dir="${application.tests}">
                             <include name="**/*Test.php"/>
@@ -183,14 +183,14 @@
                 </phpunit>
                 <php expression="get_include_path()" returnProperty="classpath" />
                 <coverage-report outfile="coverage.xml" classpath="${classpath}">
-                    <report todir="${application.builddir}/coverage" title="Flow Code Coverage"/>
+                    <report todir="${application.builddir}/coverage" title="Fuzzy Code Coverage"/>
                 </coverage-report>
                 <phpunitreport infile="${application.builddir}/logs/junit.xml"
                     format="noframes"
                     todir="${application.builddir}/logs"/>
             </then>
             <else>
-                <phpunit codecoverage="false" bootstrap="${application.tests}/bootstrap.php">
+                <phpunit codecoverage="false" bootstrap="${project.basedir}/application/bootstrap.php">
                     <batchtest>
                         <fileset dir="${application.tests}">
                             <include name="**/*Test.php"/>
