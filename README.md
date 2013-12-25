@@ -35,6 +35,9 @@ In the root directory.
 
 ### Continuous Integration
 
+Edit the composer directory in the build.properties.
+<code>composer.directory=PATH TO YOUR COMPOSER DIRECTORY</code>
+
 Local test:
 <code>phing local-test</code>
 
