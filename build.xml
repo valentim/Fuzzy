@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="Fuzzy" default="version" basedir=".">
+
+    <property file="build.properties"/>
+
+    <target name="version">
+        <echo msg="Fuzzy Version: ${application.version}"/>
+    </target>
+
+    <target name="local-test"
+            depends="phpmd-local, phpunit-local, phpcpd-local, lint-local, phpcs-local"/>
+
+    <target name="phpmd-local" description="Detecção de bagunça de código">
+        <phpmd rulesets="./phpmd.xml" file="${application.library}/">
+        </phpmd>
+    </target>
+
+    <target name="phpunit-local" description="Testes Unitários">
+        <phpunit codecoverage="false" printsummary="true" haltonfailure="true" bootstrap="${project.basedir}/application/bootstrap.php">
+            <batchtest>
+                <fileset dir="${application.tests}">
+                    <include name="**/*Test.php"/>
+                </fileset>
+            </batchtest>
+        </phpunit>
+    </target>
+
+    <target name="phpcpd-local" description="Testa duplicação de código">
+        <phpcpd>
+            <fileset dir="${application.library}">
+                <include name="**/*.php" />
+            </fileset>
+        </phpcpd>
+    </target>
+
+    <target name="lint-local">
+        <phplint haltonfailure="true">
+            <fileset dir="${application.library}">
+                <include name="**/*.php" />
+            </fileset>
+            <fileset dir="${application.tests}">
+                <include name="**/*.php" />
+            </fileset>
+        </phplint>
+    </target>
+
+    <target name="phpcs-local" description="Testa o padrão de codificação">
+        <phpcodesniffer
+            standard="PSR2"
+            format="summary">
+            <fileset dir="${application.library}">
+                <include name="**/*.php"/>
+            </fileset>
+        </phpcodesniffer>
+    </target>
+
+
+    <target name="build"
+            depends="prepare,lint,phploc,pdepend,phpmd,phpcs,phpcpd,phpunit-exec,phpcb,phpdoc2-exec"/>
+
+    <target name="clean" description="Limpa os diretórios de artefatos">
+        <delete dir="${application.builddir}/api"/>
+        <delete dir="${application.builddir}/code-browser"/>
+        <delete dir="${application.builddir}/coverage"/>
+        <delete dir="${application.builddir}/logs"/>
+        <delete dir="${application.builddir}/pdepend"/>
+    </target>
+
+    <target name="prepare" depends="clean" description="Cria os diretórios de artefatos">
+        <mkdir dir="${application.builddir}/api"/>
+        <mkdir dir="${application.builddir}/code-browser"/>
+        <mkdir dir="${application.builddir}/coverage"/>
+        <mkdir dir="${application.builddir}/logs"/>
+        <mkdir dir="${application.builddir}/pdepend"/>
+    </target>
+
+    <target name="lint">
+        <phplint haltonfailure="true">
+            <fileset dir="${application.library}">
+                <include name="**/*.php" />
+            </fileset>
+            <fileset dir="${application.tests}">
+                <include name="**/*.php" />
+            </fileset>
+        </phplint>
+    </target>
+
+    <target name="phploc" description="Mede o tamanho da aplicação">
+        <exec executable="phploc">
+            <arg value="--log-csv" />
+            <arg value="${application.builddir}/logs/phploc.csv" />
+            <arg path="${application.library}" />
+        </exec>
+    </target>
+
+    <target name="pdepend" description="Calcula métricas de software">
+        <phpdepend>
+            <fileset dir="${application.library}">
+                <include name="**/*.php" />
+            </fileset>
+            <logger type="jdepend-xml"
+                    outfile="${application.builddir}/logs/jdepend.xml"/>
+            <logger type="jdepend-chart"
+                    outfile="${application.builddir}/pdepend/dependencies.svg"/>
+            <logger type="overview-pyramid"
+                    outfile="${application.builddir}/pdepend/overview-pyramid.svg"/>
+            <analyzer type="coderank-mode" value="method"/>
+        </phpdepend>
+    </target>
+
+    <target name="phpmd" description="Detecção de bagunça de código">
+        <phpmd rulesets="./phpmd.xml" file="${application.library}/">
+            <formatter type="xml" outfile="${application.builddir}/logs/pmd.xml"/>
+        </phpmd>
+    </target>
+
+    <target name="phpcs" description="Testa o padrão de codificação">
+        <phpcodesniffer
+            standard="PSR2"
+            showSniffs="false"
+            showWarnings="true">
+            <fileset dir="${application.library}">
+                <include name="**/*.php"/>
+            </fileset>
+            <formatter type="checkstyle" outfile="${application.builddir}/logs/checkstyle.xml"/>
+        </phpcodesniffer>
+    </target>
+
+    <target name="phpcpd" description="Testa duplicação de código">
+        <phpcpd file="${application.library}">
+            <formatter type="pmd" outfile="${application.builddir}/logs/pmd-cpd.xml"/>
+        </phpcpd>
+    </target>
+
+    <target name="phpunit-exec1" description="Testes unitários">
+        <exec passthru="true"
+              command="phpunit
+                --bootstrap=${application.tests}/bootstrap.php
+                --coverage-html=${application.builddir}/coverage
+                --coverage-clover=${application.builddir}/logs/clover.xml
+                --testdox-html=${application.builddir}/logs/testdox.html
+                --log-junit=${application.builddir}/logs/junit.xml
+                --no-configuration
+                ${application.tests}"/>
+        <phpunitreport infile="${application.builddir}/logs/junit.xml"
+            format="noframes"
+            todir="${application.builddir}/logs"/>
+    </target>
+
+    <target name="phpunit-exec" description="Testes unitários">
+        <exec passthru="true"
+              command="phpunit --configuration=${application.tests}/phpunit.xml"/>
+        <phpunitreport infile="${application.builddir}/logs/junit.xml"
+            format="noframes"
+            todir="${application.builddir}/logs"/>
+    </target>
+
+    <target name="phpunit" description="Testes Unitários">
+        <php expression="ini_set('memory_limit', -1);"/>
+        <php expression="extension_loaded('xdebug');" returnProperty="xdebug"/>
+        <if>
+            <istrue value="${xdebug}"/>
+            <then>
+                <delete file="${application.builddir}/coverage/coverage.db" />
+                <coverage-setup database="${application.builddir}/coverage/coverage.db">
+                    <fileset dir="${application.library}">
+                        <include name="**/*.php"/>
+                    </fileset>
+                </coverage-setup>
+                <phpunit usecustomerrorhandler="false"
+                         haltonerror="true"
+                         printsummary="true"
+                         codecoverage="true"
+                         bootstrap="${application.tests}/bootstrap.php">
+                    <batchtest>
+                        <fileset dir="${application.tests}">
+                            <include name="**/*Test.php"/>
+                        </fileset>
+                    </batchtest>
+                    <formatter type="xml" todir="${application.builddir}/logs" outfile="junit.xml"/>
+                    <formatter type="clover" todir="${application.builddir}/logs" outfile="clover.xml"/>
+                </phpunit>
+                <php expression="get_include_path()" returnProperty="classpath" />
+                <coverage-report outfile="coverage.xml" classpath="${classpath}">
+                    <report todir="${application.builddir}/coverage" title="Flow Code Coverage"/>
+                </coverage-report>
+                <phpunitreport infile="${application.builddir}/logs/junit.xml"
+                    format="noframes"
+                    todir="${application.builddir}/logs"/>
+            </then>
+            <else>
+                <phpunit codecoverage="false" bootstrap="${application.tests}/bootstrap.php">
+                    <batchtest>
+                        <fileset dir="${application.tests}">
+                            <include name="**/*Test.php"/>
+                        </fileset>
+                    </batchtest>
+                    <formatter type="clover" todir="${application.builddir}/logs" outfile="clover.xml"/>
+                    <formatter type="xml" todir="${application.builddir}/logs" outfile="junit.xml"/>
+                </phpunit>
+            </else>
+        </if>
+        <phpunitreport infile="${application.tests}/phpunit.xml"
+                       todir="${application.builddir}/logs"/>
+    </target>
+
+    <target name="phpcb" description="Cria a navegação de código">
+        <exec executable="phpcb">
+            <arg value="--log" />
+            <arg path="${application.builddir}/logs" />
+            <arg value="--source" />
+            <arg path="${application.library}" />
+            <arg value="--output" />
+            <arg path="${application.builddir}/code-browser" />
+        </exec>
+    </target>
+
+    <target name="phpdoc2" description="Documentação de API">
+        <phpdoc2 title="Arizona.Flow API Documentation" destdir="${application.builddir}/api" template="responsive">
+            <fileset dir="${application.library}">
+                <include name="**/*.php" />
+            </fileset>
+        </phpdoc2>
+    </target>
+
+    <target name="phpdoc" description="Documentação de API">
+        <phpdoc title="Leviathan API Documentation"
+                destdir="${application.builddir}/api"
+                sourcecode="false"
+                output="HTML:Smarty:PHP">
+        </phpdoc>
+    </target>
+
+    <target name="phpdox" description="Cria a documentação">
+        <exec executable="phpdox"/>
+    </target>
+
+    <target name="phpdoc2-exec" description="Documentação de API">
+        <exec command="phpdoc --title='Arizona.Proof API Documentation' -d ${application.library} -t ${application.builddir}/api --template=responsive --defaultpackagename=Arizona"/>
+    </target>
+
+    <target name="testcs" description="Testa o padrão de codificação">
+        <phpcodesniffer
+            standard="Arizona"
+            showWarnings="true"
+            encoding="utf-8">
+            <fileset dir="${application.library}">
+                <include name="**/*.php"/>
+            </fileset>
+            <formatter type="summary" usefile="false"/>
+        </phpcodesniffer>
+    </target>
+
+    <target name="dopackage" description="pack application">
+        <exec
+        outputProperty="latestVersion"
+        command="git describe --tags `git rev-list --tags --max-count=1`"
+        dir="${project.basedir}"/>
+        <echo msg="${latestVersion}"/>
+    </target>
+</project>
