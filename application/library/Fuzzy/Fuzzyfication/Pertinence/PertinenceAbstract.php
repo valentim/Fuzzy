@@ -33,13 +33,13 @@ abstract class PertinenceAbstract implements PertinenceInterface
     protected function setIntervalValue($each)
     {
         $this->interval[$this->point] = $this->end;
-        while($this->point){
+        while($this->point) {
             $value = $this->interval[$this->point] - $each;
             $this->point--;
             $this->interval[$this->point] = (int) $value;
         }
         
-        $this->interval = array_reverse($this->interval); 
+        $this->interval = array_reverse($this->interval);
     }
         
     abstract public function process($x);
