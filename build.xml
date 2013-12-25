@@ -57,7 +57,7 @@
 
 
     <target name="build"
-            depends="prepare,lint,phploc,pdepend,phpmd,phpcs,phpcpd,phpunit-exec,phpcb,phpdoc2-exec"/>
+            depends="prepare,lint,phploc,pdepend,phpmd,phpcs,phpcpd,phpunit,phpcb,phpdoc2-exec"/>
 
     <target name="clean" description="Limpa os diretórios de artefatos">
         <delete dir="${application.builddir}/api"/>
@@ -237,7 +237,7 @@
     </target>
 
     <target name="phpdoc2-exec" description="Documentação de API">
-        <exec command="phpdoc --title='Arizona.Proof API Documentation' -d ${application.library} -t ${application.builddir}/api --template=responsive --defaultpackagename=Arizona"/>
+        <exec command="phpdoc --title='Fuzzy Logic API Documentation' -d ${application.library} -t ${application.builddir}/api --template=responsive --defaultpackagename=Fuzzy"/>
     </target>
 
     <target name="testcs" description="Testa o padrão de codificação">
