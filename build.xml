@@ -182,7 +182,7 @@
                     <formatter type="clover" todir="${application.builddir}/logs" outfile="clover.xml"/>
                 </phpunit>
                 <php expression="get_include_path()" returnProperty="classpath" />
-                <coverage-report outfile="coverage.xml" classpath="${classpath}">
+                <coverage-report outfile="${application.builddir}/logs/coverage.xml" classpath="${classpath}">
                     <report todir="${application.builddir}/coverage" title="Fuzzy Code Coverage"/>
                 </coverage-report>
                 <phpunitreport infile="${application.builddir}/logs/junit.xml"
