@@ -16,7 +16,7 @@ Instalation
 ### Depencencies
 - PEAR http://pear.php.net/
 - Composer http://getcomposer.org/
-- PHP 5.3.3 >=
+- PHP >= 5.3.3 
 
 ### Development environment dependencies
 - phpqatools http://phpqatools.org/
