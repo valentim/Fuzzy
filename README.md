@@ -32,3 +32,11 @@ Instalation
 
 In the root directory.
 <code>php composer.phar install</code>
+
+### Continuous Integration
+
+Local test:
+<code>phing local-test</code>
+
+Build:
+<code>phing build</code>

@@ -9,8 +9,13 @@
     </target>
 
     <target name="local-test"
-            depends="phpmd-local, phpunit-local, phpcpd-local, lint-local, phpcs-local"/>
+            depends="composer, phpmd-local, phpunit-local, phpcpd-local, lint-local, phpcs-local"/>
 
+	<target name="composer" description="Composer Install">
+        <exec passthru="true"
+              command="php ${composer.directory}/composer.phar install"/>
+    </target>
+    
     <target name="phpmd-local" description="Detecção de bagunça de código">
         <phpmd rulesets="./phpmd.xml" file="${application.library}/">
         </phpmd>
@@ -57,7 +62,7 @@
 
 
     <target name="build"
-            depends="prepare,lint,phploc,pdepend,phpmd,phpcs,phpcpd,phpunit,phpcb,phpdoc2-exec"/>
+            depends="prepare,composer,lint,phploc,pdepend,phpmd,phpcs,phpcpd,phpunit,phpcb,phpdoc2-exec"/>
 
     <target name="clean" description="Limpa os diretórios de artefatos">
         <delete dir="${application.builddir}/api"/>
