@@ -27,7 +27,7 @@ class Trapezoid extends PertinenceAbstract
         $e = ($x - $a) / ($b - $a);
         $f = ($d - $x) / ($d - $c);
 
-        return max(min(array($e, 1, $f)), 0 );
+        return max(min(array($e, 1, $f)), 0);
         
     }
 }
