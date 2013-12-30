@@ -5,13 +5,13 @@
  *
  * @author thiagovalentim
  */
-namespace Fuzzy\Fuzzyfication\Pertinence;
+namespace Fuzzy\Fuzzification\Pertinence;
 
 class Trapezoid extends PertinenceAbstract
 {
     public function __construct()
     {
-        $this->point = 5;
+        $this->point = 3;
     }
     
     /**
@@ -21,8 +21,8 @@ class Trapezoid extends PertinenceAbstract
     {
         $a = $this->interval[0];
         $b = $this->interval[1];
-        $c = $this->interval[4];
-        $d = $this->interval[5];
+        $c = $this->interval[2];
+        $d = $this->interval[3];
 
         $e = ($x - $a) / ($b - $a);
         $f = ($d - $x) / ($d - $c);
