@@ -3,9 +3,9 @@
  *
  * @author thiagovalentim
  */
-namespace Fuzzy\Fuzzyfication;
+namespace Fuzzy\Fuzzification;
 
-interface FuzzyficationInterface
+interface FuzzificationInterface
 {
     public function addCollection($type);
     public function addGroup($type, $group, $values);

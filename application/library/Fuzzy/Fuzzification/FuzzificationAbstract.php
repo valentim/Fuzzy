@@ -1,16 +1,17 @@
 <?php
 /**
- * Description of FuzzyficationAbstract
+ * Description of FuzzificationAbstract
  *
  * @author thiagovalentim
  */
-namespace Fuzzy\Fuzzyfication;
+namespace Fuzzy\Fuzzification;
 
-use Fuzzy\Fuzzyfication\Pertinence\Pertinence;
+use Fuzzy\Fuzzification\Pertinence\Pertinence;
 
-abstract class FuzzyficationAbstract implements FuzzyficationInterface
+abstract class FuzzificationAbstract implements FuzzificationInterface
 {
     protected $fuzzyCollection = array();
+    protected $fuzzyficationData = array();
     protected $pertinence;
     
     public function __construct($function)
@@ -21,27 +22,23 @@ abstract class FuzzyficationAbstract implements FuzzyficationInterface
     
     public function addCollection($type)
     {
-        $this->fuzzyCollection[$type] = array();
+        if (!array_key_exists($type, $this->fuzzyCollection)) {
+            $this->fuzzyCollection[$type] = array();
+        }        
     }
     
     public function addGroup($type, $group, $values)
     {
         $this->fuzzyCollection[$type][$group] = $values;
     }
-    
-    public function __get($name)
-    {
-        if (array_key_exists($name, $this->fuzzyCollection)) {
-            return $this->fuzzyCollection[$name];
-        }
-    }
 
     public function run($value)
     {
+        $pertinence = $this->pertinence->getPertinenceName();
         foreach ($this->fuzzyCollection as $type => $group) {
             $groupName = key($group);
             $this->pertinence->setValues(current($group));
-            $this->fuzzyCollection[$type][$groupName]['pertinence'] = $this->pertinence->process($value);
+            $this->fuzzyCollection[$type][$groupName][$pertinence] = $this->pertinence->process($value);
         }
     }
 }
