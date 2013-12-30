@@ -5,11 +5,11 @@
  *
  * @author thiagovalentim
  */
-namespace Fuzzy\Fuzzyfication\Pertinence;
+namespace Fuzzy\Fuzzification\Pertinence;
 
 class Pertinence
 {
-    protected $namespace = 'Fuzzy\\Fuzzyfication\\Pertinence\\';
+    protected $namespace = 'Fuzzy\\Fuzzification\\Pertinence\\';
     protected $function;
     
     public function __construct($function)
