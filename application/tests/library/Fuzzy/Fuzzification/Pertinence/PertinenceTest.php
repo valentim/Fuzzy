@@ -32,7 +32,7 @@ class PertinenceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Fuzzy\Fuzzyfication\Pertinence\Pertinence::getPertinence
+     * @covers Fuzzy\Fuzzification\Pertinence\Pertinence::getPertinence
      * @todo   Implement testGetPertinence().
      */
     public function testGetPertinence()

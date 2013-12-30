@@ -9,7 +9,7 @@ class CentroidTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
-     * @var Fuzzyfication
+     * @var Fuzzification
      */
     protected $object;
 
