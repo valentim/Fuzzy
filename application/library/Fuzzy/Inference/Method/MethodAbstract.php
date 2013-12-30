@@ -9,5 +9,8 @@ namespace Fuzzy\Inference\Method;
 
 abstract class MethodAbstract
 {
-    //put your code here
+    /**
+     * 
+     * [[tamanho[medio]]0[sabor[bom]][satisfação[boa]]]
+     */
 }
