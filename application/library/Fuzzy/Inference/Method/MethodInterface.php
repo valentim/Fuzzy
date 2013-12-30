@@ -8,5 +8,5 @@ namespace Fuzzy\Inference\Method;
 
 interface MethodInterface
 {
-    //put your code here
+    public function processRules();
 }
