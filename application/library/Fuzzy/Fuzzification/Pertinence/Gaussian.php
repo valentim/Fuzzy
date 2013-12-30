@@ -5,7 +5,7 @@
  *
  * @author thiagovalentim
  */
-namespace Fuzzy\Fuzzyfication\Pertinence;
+namespace Fuzzy\Fuzzification\Pertinence;
 
 class Gaussian
 {
