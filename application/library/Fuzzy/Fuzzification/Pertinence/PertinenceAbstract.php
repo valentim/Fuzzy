@@ -63,13 +63,14 @@ abstract class PertinenceAbstract implements PertinenceInterface
     {
         $this->interval[$this->point] = $this->end;
         
-        while ($this->point) {
-            $value = $this->interval[$this->point] - $each;
-            $this->point--;
-            $this->interval[$this->point] = (int) $value;
+        $tmpPoint = $this->point; 
+        while ($tmpPoint) {
+            $value = $this->interval[$tmpPoint] - $each;
+            $tmpPoint--;
+            $this->interval[$tmpPoint] = (int) $value;
         }
         
-        $this->interval = array_reverse($this->interval);
+        sort($this->interval);
     }
 
     abstract public function process($x);
