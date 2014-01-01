@@ -11,7 +11,7 @@ class Centroid implements DefuzzificationInterface
     }
     
     public function calculate()
-    {   
+    {
         $numerator = 0;
         $denumerator = 0;
         

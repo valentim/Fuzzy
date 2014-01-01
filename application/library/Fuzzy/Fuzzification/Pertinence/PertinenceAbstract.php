@@ -26,7 +26,7 @@ abstract class PertinenceAbstract implements PertinenceInterface
     public function getSet()
     {
         if (empty($this->set)) {
-            for ($i = $this->end; $i > $this->start; $i--) {    
+            for ($i = $this->end; $i > $this->start; $i--) {
                 $this->addPertinence($i);
             }
         }
@@ -42,7 +42,7 @@ abstract class PertinenceAbstract implements PertinenceInterface
         $this->makeInterval();
     }
     
-    protected function addPertinence($value) 
+    protected function addPertinence($value)
     {
         $pertinence = (String) $this->process($value);
         if (!isset($this->set[$pertinence])) {
