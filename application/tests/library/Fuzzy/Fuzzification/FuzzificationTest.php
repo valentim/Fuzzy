@@ -66,7 +66,7 @@ class FuzzificationTest extends \PHPUnit_Framework_TestCase
         $object = new Fuzzification($type);
         $object->addGroup($groupName, $group, $values);
         $object->run($input);
-        $fuzzyCollection = $this->readAttribute($object, 'fuzzyCollection');        
+        $fuzzyCollection = $object->getFuzzyCollection();        
         $this->assertSame(sprintf("2.f", $fuzzyCollection[$groupName][$group][$type]), sprintf("2.f", $pertinence));
     }
     
