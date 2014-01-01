@@ -47,12 +47,42 @@ class TrapezoidTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * @covers Fuzzy\Fuzzification\Pertinence\Trapezoid::setValues
+     * @dataProvider valuesProvider
+     */
+    public function testSetValues($values, $expected)
+    {        
+        $object = new Trapezoid;
+        $object->setValues($values);
+        
+        $interval = $this->readAttribute($object, 'interval');
+        
+        $this->assertSame($expected, $interval);
+    }
+    
+    /**
      * @covers Fuzzy\Fuzzification\Pertinence\Trapezoid::process
      * @dataProvider pertinenceProvider
      */
     public function testProcess($input, $pertinence)
     {
         $this->assertSame($this->object->process($input), $pertinence);
+    }
+    
+    /**
+     * @covers Fuzzy\Fuzzification\Pertinence\PertinenceAbstract::getSet
+     * @dataProvider realExampleProvider
+     * @param Array $range
+     * @param int $pertinence
+     * @param Array $values
+     */
+    public function testSetOutput($range, $pertinence, $values)
+    {
+        $object = new Trapezoid;
+        $object->setValues($range);
+    
+        $set = $object->getSet();
+        $this->assertSame($set[$pertinence], $values);
     }
     
     public function pertinenceProvider()
@@ -67,22 +97,6 @@ class TrapezoidTest extends \PHPUnit_Framework_TestCase
         );
     }
     
-    /**
-     * @covers Fuzzy\Fuzzification\Pertinence\Trapezoid::getSet
-     * @dataProvider realExampleProvider
-     * @param Array $range
-     * @param int $pertinence
-     * @param Array $values
-     */
-    public function testSetOutput($range, $pertinence, $values) 
-    {
-        $object = new Trapezoid;
-        $object->setValues($range);
-        
-        $set = $object->getSet();
-        $this->assertSame($set[$pertinence], $values);
-    }
-    
     public function realExampleProvider() 
     {
         return array(
@@ -91,4 +105,14 @@ class TrapezoidTest extends \PHPUnit_Framework_TestCase
         );
     }
 
+    public function valuesProvider()
+    {
+        return array(
+        	array(array(1,2,3,4), array(1,2,3,4)),
+            array(array(10,20,30,40), array(10,20,30,40)),
+            array(array(5,15,20), array(5,10,15,20)),
+            array(array(1,2,3), array(0,1,2,3)),
+            array(array(7,8,9,10), array(7,8,9,10))
+        );
+    }
 }
