@@ -42,6 +42,9 @@ class MamdaniTest extends \PHPUnit_Framework_TestCase
         $this->object = null;
     }
     
+    /**
+     * @covers Fuzzy\Inference\Method\Mamdani::parseRule
+     */
     public function testRegex() 
     {
         $expected = array(
