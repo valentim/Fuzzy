@@ -16,7 +16,7 @@ class Centroid implements DefuzzificationInterface
         $denumerator = 0;
         
         foreach ($this->aggregation as $pertinence => $values) {
-            $numerator += array_reduce($values, function($v, $w) use($pertinence, &$denumerator) {
+            $numerator += array_reduce($values, function ($v, $w) use ($pertinence, &$denumerator) {
                 $v += $w * $pertinence;
                 $denumerator += $pertinence;
                 

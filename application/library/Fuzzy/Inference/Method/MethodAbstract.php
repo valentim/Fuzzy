@@ -13,7 +13,7 @@ abstract class MethodAbstract implements MethodInterface
     
     protected $rules = array(
         'data' => array(),
-    	'max' => array(),
+        'max' => array(),
         'min' => array(),
         'then' => array()
     );
@@ -22,7 +22,7 @@ abstract class MethodAbstract implements MethodInterface
      * 
      * [tamanho(medio)]|[sabor(bom)]:[satisfação(boa)], [tamanho(medio)]|[sabor(bom)]:[satisfação(boa)]
      */
-    public function __construct($linguisticRules) 
+    public function __construct($linguisticRules)
     {
         $rules = explode(",", $linguisticRules);
         $this->parseRule($rules);
@@ -33,7 +33,7 @@ abstract class MethodAbstract implements MethodInterface
         return $this->rules;
     }
     
-    private function parseRule(array $linguisticRules) 
+    private function parseRule(array $linguisticRules)
     {
         foreach ($linguisticRules as $rule) {
             preg_match_all(self::PARSEDATA, $rule, $structures, PREG_SET_ORDER);

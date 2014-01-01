@@ -3,6 +3,7 @@ namespace Fuzzy\Inference\Method;
 
 use Fuzzy\Defuzzification\DefuzzificationInterface;
 use Fuzzy\Fuzzification\FuzzificationInterface;
+
 /**
  *
  * @author Thiago Valentim
@@ -35,13 +36,13 @@ class Mamdani extends MethodAbstract
         $operator = array(
             '|' => 'max',
             '&' => 'min',
-            ':' => 'then'	
+            ':' => 'then'
         );
         
         $fuzzyCollection = $this->fuzzify->getFuzzyCollection();
         foreach ($this->rules['data'] as $structure) {
             if (count($structure) > 1) {
-                $collection = substr($structure[1],  0,-strpos($structure[1], "("));
+                $collection = substr($structure[1], 0, -strpos($structure[1], "("));
                 array_push($temp, $fuzzyCollection[$collection][$structure[2]]);
                 
                 continue;
@@ -51,7 +52,7 @@ class Mamdani extends MethodAbstract
                 $temp = array($temp[0][$this->fuzzify->getPertinence()->getPertinenceName()]);
             }
                         
-            $this->rules[$operator[$structure[0]]] = array_merge($this->rules[$operator[$structure[0]]], $temp);            
+            $this->rules[$operator[$structure[0]]] = array_merge($this->rules[$operator[$structure[0]]], $temp);
             $temp = array();
         }
     }

@@ -23,7 +23,7 @@ abstract class FuzzificationAbstract implements FuzzificationInterface
     {
         if (!array_key_exists($type, $this->fuzzyCollection)) {
             $this->fuzzyCollection[$type] = array();
-        }        
+        }
     }
     
     public function addGroup($type, $group, $values)

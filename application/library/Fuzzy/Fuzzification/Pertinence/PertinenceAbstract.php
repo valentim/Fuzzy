@@ -16,14 +16,14 @@ abstract class PertinenceAbstract implements PertinenceInterface
     protected $interval = array();
     protected $set = array();
 
-    public function getPertinenceName() 
+    public function getPertinenceName()
     {
         $anatomyClass = explode(DIRECTORY_SEPARATOR, get_class($this));
         
-        return strtolower(end($anatomyClass));      
+        return strtolower(end($anatomyClass));
     }
     
-    public function getSet() 
+    public function getSet()
     {
         if (empty($this->set)) {
             for ($i = $this->end; $i > $this->start; $i--) {    
@@ -63,7 +63,7 @@ abstract class PertinenceAbstract implements PertinenceInterface
     {
         $this->interval[$this->point] = $this->end;
         
-        $tmpPoint = $this->point; 
+        $tmpPoint = $this->point;
         while ($tmpPoint) {
             $value = $this->interval[$tmpPoint] - $each;
             $tmpPoint--;
