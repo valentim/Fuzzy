@@ -1,7 +1,7 @@
 <?php
 namespace Fuzzy\Defuzzification;
 
-class Centroid
+class Centroid implements DefuzzificationInterface
 {
     private $aggregation = array();
     
