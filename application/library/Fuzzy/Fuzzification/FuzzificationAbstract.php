@@ -11,7 +11,6 @@ use Fuzzy\Fuzzification\Pertinence\Pertinence;
 abstract class FuzzificationAbstract implements FuzzificationInterface
 {
     protected $fuzzyCollection = array();
-    protected $fuzzyficationData = array();
     protected $pertinence;
     
     public function __construct($function)
