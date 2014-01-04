@@ -42,7 +42,7 @@ class Mamdani extends MethodAbstract
         $fuzzyCollection = $this->fuzzify->getFuzzyCollection();
         foreach ($this->rules['data'] as $structure) {
             if (count($structure) > 1) {
-                $collection = substr($structure[1], 0, -strpos($structure[1], "("));
+                $collection = substr($structure[1], 0, strpos($structure[1], "("));
                 array_push($temp, $fuzzyCollection[$collection][$structure[2]]);
                 
                 continue;
