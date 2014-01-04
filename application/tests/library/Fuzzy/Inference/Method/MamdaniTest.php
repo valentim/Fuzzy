@@ -41,6 +41,24 @@ class MamdaniTest extends \PHPUnit_Framework_TestCase
     {
         $this->object = null;
     }
+    /**
+     * @covers Fuzzy\Inference\Method\MethodAbstract::getRules
+     */
+    public function testRules()
+    {
+        $expected = array(
+            'data' =>   array(array("[tamanho(medio)]", "tamanho(medio)", "medio"),
+                        array("|"),
+                        array("[sabor(bom)]", "sabor(bom)", "bom"),
+                        array(":"),
+                        array("[satisfação(boa)]", "satisfação(boa)", "boa")),
+            'max' => array(1),
+            'min' => array(),
+            'then' => array(array(7,8,9,10, 'trapezoid' => 0))
+        );
+        
+        $this->assertSame($expected, $this->object->getRules());
+    }
     
     /**
      * @covers Fuzzy\Inference\Method\Mamdani::parseRule
