@@ -18,8 +18,8 @@ abstract class PertinenceAbstract implements PertinenceInterface
 
     public function getPertinenceName()
     {
-        $anatomyClass = explode(DIRECTORY_SEPARATOR, get_class($this));
-        
+        $anatomyClass = explode("\\", get_class($this));
+
         return strtolower(end($anatomyClass));
     }
     
