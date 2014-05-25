@@ -37,6 +37,9 @@ class FuzzificationTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('Fuzzy\Fuzzification\Pertinence\Trapezoid', $pertinence);
     }
     
+    /**
+     * @covers Fuzzy\Fuzzification\FuzzificationAbstract::addCollection
+     */
     public function testAddCollection()
     {
         $this->object->addCollection('Tamanho');
@@ -45,6 +48,7 @@ class FuzzificationTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * @covers Fuzzy\Fuzzification\FuzzificationAbstract::addGroup
      * @dataProvider collectionAndGroupProvider
      */
     public function testAddGroup($collection, $group, $values)
@@ -52,12 +56,12 @@ class FuzzificationTest extends \PHPUnit_Framework_TestCase
         $object = new Fuzzification('trapezoid');
         $object->addGroup($collection, $group, $values);
         $fuzzyCollection = $this->readAttribute($object, 'fuzzyCollection');
-        
-        $this->assertInternalType('array', $fuzzyCollection);
+        $this->assertSame($fuzzyCollection['trapezoid'][$group], $values);
         
     }
     
     /**
+     * @covers Fuzzy\Fuzzification\FuzzificationAbstract::run
      * @dataProvider collectionAndGroupProvider
      */
     public function testRun($type, $group, $values, $input, $pertinence)

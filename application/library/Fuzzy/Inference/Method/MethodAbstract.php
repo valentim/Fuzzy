@@ -35,6 +35,7 @@ abstract class MethodAbstract implements MethodInterface
     
     private function parseRule(array $linguisticRules)
     {
+        $structures = array();
         foreach ($linguisticRules as $rule) {
             preg_match_all(self::PARSEDATA, $rule, $structures, PREG_SET_ORDER);
         }

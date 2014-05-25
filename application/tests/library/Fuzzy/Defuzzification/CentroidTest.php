@@ -31,6 +31,9 @@ class CentroidTest extends \PHPUnit_Framework_TestCase
         $this->object = null;
     }
     
+    /**
+     * @covers Fuzzy\Defuzzification\Centroid::calculate
+     */
     public function testVerifyCalculate() 
     {
         $this->assertSame(15.0, $this->object->calculate());

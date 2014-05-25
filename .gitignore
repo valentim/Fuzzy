@@ -1,4 +1,7 @@
 build
+.project
+.idea
+.vagrant
 .settings
 .buildpath
 .project

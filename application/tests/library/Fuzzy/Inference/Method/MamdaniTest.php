@@ -28,7 +28,7 @@ class MamdaniTest extends \PHPUnit_Framework_TestCase
         $fuzzification->addGroup("sabor", "bom", array(7,8,9,10));
         $fuzzification->addGroup("satisfação", "boa", array(7,8,9,10));
         $fuzzification->run(41);
-        
+
         $centroid = new Centroid(array("0.6" => array(17, 8), "0.2" => array(29, 16)));
         $this->object = new Mamdani($rules, $fuzzification, $centroid);
     }
@@ -65,6 +65,7 @@ class MamdaniTest extends \PHPUnit_Framework_TestCase
      */
     public function testRegex() 
     {
+        $structure = array();
         $expected = array(
         	array("[tamanho(medio)]", "tamanho(medio)", "medio"),
             array("|"),

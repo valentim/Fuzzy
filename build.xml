@@ -10,11 +10,6 @@
 
     <target name="local-test"
             depends="composer, phpmd-local, phpunit-local, phpcpd-local, lint-local, phpcs-local"/>
-
-	<target name="composer" description="Composer Install">
-        <exec passthru="true"
-              command="php ${composer.directory}/composer.phar install"/>
-    </target>
     
     <target name="phpmd-local" description="Detecção de bagunça de código">
         <phpmd rulesets="./phpmd.xml" file="${application.library}/">
@@ -60,10 +55,40 @@
         </phpcodesniffer>
     </target>
 
+    <target name="up" depends="composer, dependecies" />
 
     <target name="build"
             depends="prepare,composer,lint,phploc,pdepend,phpmd,phpcs,phpcpd,phpunit,phpcb,phpdoc2-exec"/>
 
+    <target name="composer" description="Composer Install">
+        <exec passthru="true"
+              command="php ${composer.directory}/composer.phar install"/>
+    </target>
+    
+    <target name="dependecies" description="All dependencies that there are not in composer">
+        <exec passthru="true"
+              command="sudo pear config-set auto_discover 1"/>
+        <exec passthru="true"
+              command="sudo pear install pear.phpqatools.org/phpqatools"/>
+        <exec passthru="true"
+              command="sudo pear install -f pear.phpunit.de/phpcpd-1.4.1"/>
+        <exec passthru="true"
+              command="sudo pear install -f pear/PHP_CodeSniffer-1.4.8"/>
+        <exec passthru="true"
+              command="sudo apt-get install php5-dev"/>
+        <exec passthru="true"
+              command="sudo pecl install xdebug"/>
+        
+        <exec passthru="true"
+              command="wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | sudo apt-key add -"/>
+        <exec passthru="true"
+              command="sudo sh -c 'echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list'"/>
+        <exec passthru="true"
+              command="sudo apt-get update"/>
+        <exec passthru="true"
+              command="sudo apt-get install jenkins"/>
+    </target>
+    
     <target name="clean" description="Limpa os diretórios de artefatos">
         <delete dir="${application.builddir}/api"/>
         <delete dir="${application.builddir}/code-browser"/>
@@ -230,7 +255,7 @@
     </target>
 
     <target name="phpdoc" description="Documentação de API">
-        <phpdoc title="Leviathan API Documentation"
+        <phpdoc title="Fuzzy API Documentation"
                 destdir="${application.builddir}/api"
                 sourcecode="false"
                 output="HTML:Smarty:PHP">
@@ -247,7 +272,7 @@
 
     <target name="testcs" description="Testa o padrão de codificação">
         <phpcodesniffer
-            standard="Arizona"
+            standard="Fuzzy"
             showWarnings="true"
             encoding="utf-8">
             <fileset dir="${application.library}">
