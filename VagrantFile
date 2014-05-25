@@ -1,0 +1,15 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.box = "fuzzy"
+  config.vm.box_url = "http://files.vagrantup.com/precise32.box"
+  config.vm.network :private_network, ip: "33.33.33.96"
+  config.vm.network "forwarded_port", guest: 80, host: 8086
+  config.vm.synced_folder "./", "/var/www/fuzzy/", id: "vagrant-root", :nfs => true
+  config.vm.usable_port_range = (2200..2250)
+  config.vm.boot_timeout = 600
+end
